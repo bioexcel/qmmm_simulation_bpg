@@ -2,10 +2,11 @@
 Detailed advice on individual topics
 ####################################
 
-This part of the best practice guide lists individual topics - all
-important issues regarding QM/MM simulation of biomolecular systems -
-that arose during the `BioExcel Virtual Workshop on Best Practices in
-QM/MM Simulation of Biomolecular Systems
+This part of the best practice guide lists individual topics and
+questions that are frequently asked (or should be!) addressing
+important issues regarding QM/MM simulation of biomolecular systems,
+which were covered in the `BioExcel Virtual Workshop on Best
+Practices in QM/MM Simulation of Biomolecular Systems
 <https://bioexcel.eu/events/virtual-workshop-best-practices-in-qm-mm-simulation-of-biomolecular-systems/>`_
 
 For each topic a time-indexed link is provided into a recording on
@@ -16,9 +17,9 @@ also covered in the workshop's `Panel Discussion
 <https://www.youtube.com/watch?v=iF05I-r6YW8&list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso>`_.
 
 
-===================================================
-How can QM/MM best be used in biomolecular research
-===================================================
+====================================================
+How can QM/MM best be used in biomolecular research?
+====================================================
 
 ----------------------------------
 When to use QM/MM, and when not to
@@ -274,9 +275,9 @@ What kind of systematic basis set benchmarking should one perform?
 * **Check for convergence with respect to basis set size.** (`listen to Adrian Mulholland on YouTube <https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3986>`_)
 
 
----------------------------------------------------------------------------------------------
-How to choose a good collective variable (reaction coordinate) and perform effective sampling
----------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------
+How to choose a good collective variable (reaction coordinate) and perform effective sampling?
+----------------------------------------------------------------------------------------------
 
 How to choose a good collective variable (reaction coordinate) and perform effective sampling: chemical intuition versus unbiased and automated approaches.
 

@@ -1,4 +1,4 @@
-# QM/MM Simulation Best Practice Guide
+# Biomolecular QM/MM Simulation Best Practice Guide
 
 A summary of the perspectives and guidance on QM/MM simulation presented by organisers and speakers of the [BioExcel workshop on best practices in QM/MM simulation of biomolecular systems](https://bioexcel.eu/events/virtual-workshop-best-practices-in-qm-mm-simulation-of-biomolecular-systems/)
 

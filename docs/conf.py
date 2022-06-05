@@ -40,7 +40,6 @@ version = ''
 extensions = [
     'sphinx_rtd_theme',
     'sphinx.ext.githubpages',
-    'sphinxcontrib.youtube',
 ]
 
 # Add any paths that contain templates here, relative to this directory.

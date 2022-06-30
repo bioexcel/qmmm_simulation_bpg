@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detailed advice on individual topics &mdash; Best Practices in QM/MM Simulation of Biomolecular Systems  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Overview and summary" href="summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Best Practices in QM/MM Simulation of Biomolecular Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Overview and summary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Detailed advice on individual topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-can-qm-mm-best-be-used-in-biomolecular-research">How can QM/MM best be used in biomolecular research?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-use-qm-mm-and-when-not-to">When to use QM/MM, and when not to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-steps">Key steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#static-modelling-vs-dynamical-simulation">Static modelling vs dynamical simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#structure-model-preparation-and-validation">Structure / model preparation and validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#structure-preparation-and-validation">Structure preparation and validation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#choosing-protonation-states">Choosing protonation states</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#model-preparation-and-validation">Model preparation and validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#qm-mm-modelling-simulation-protocol-and-validation">QM/MM modelling / simulation protocol and validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-best-to-choose-a-level-of-theory">How best to choose a level of theory?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-best-to-choose-a-suitable-dft-functional">How best to choose a suitable DFT functional?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-best-to-choose-a-suitable-qm-region-size">How best to choose a suitable QM region size?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-best-to-choose-the-valence-saturation-scheme-at-the-qm-mm-boundary">How best to choose the valence saturation scheme at the QM-MM boundary?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#is-the-electrostatic-coupling-always-the-best-compromise-for-the-qm-mm-coupling">Is the electrostatic coupling always the best compromise for the QM/MM coupling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-kind-of-systematic-basis-set-benchmarking-should-one-perform">What kind of systematic basis set benchmarking should one perform?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-choose-a-good-collective-variable-reaction-coordinate-and-perform-effective-sampling">How to choose a good collective variable (reaction coordinate) and perform effective sampling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#long-range-electrostatics-truncate-or-not">Long-range electrostatics: truncate or not?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#validation-analysis-and-interpretation-of-simulation-results">Validation, analysis and interpretation of simulation results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#high-level-qm-with-limited-or-no-sampling-or-low-level-qm-with-sampling">High-level QM with limited or no sampling, or low-level QM with sampling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-can-we-combine-low-level-qm-for-sampling-with-high-level-qm-for-energetics">How can we combine low-level QM for sampling with high-level QM for energetics?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-check-validity-and-convergence-of-the-reaction-pathways">How to check validity and convergence of the reaction pathways?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-validate-the-final-result-s">How to validate the final result(s)?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Best Practices in QM/MM Simulation of Biomolecular Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Detailed advice on individual topics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/topics.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="detailed-advice-on-individual-topics">
+<h1>Detailed advice on individual topics<a class="headerlink" href="#detailed-advice-on-individual-topics" title="Permalink to this heading"></a></h1>
+<p>This part of the best practice guide lists individual topics and
+questions that are frequently asked (or should be!) addressing
+important issues regarding QM/MM simulation of biomolecular systems,
+which were covered in the <a class="reference external" href="https://bioexcel.eu/events/virtual-workshop-best-practices-in-qm-mm-simulation-of-biomolecular-systems/">BioExcel Virtual Workshop on Best
+Practices in QM/MM Simulation of Biomolecular Systems</a></p>
+<p>For each topic a time-indexed link is provided into a recording on
+YouTube of the workshop presentation in which the speaker in question
+shares and discusses best practice regarding that topic. In addition
+to the individual speaker presentations linked to below, many topics were
+also covered in the workshop’s <a class="reference external" href="https://www.youtube.com/watch?v=iF05I-r6YW8&amp;list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso">Panel Discussion</a>.</p>
+<section id="how-can-qm-mm-best-be-used-in-biomolecular-research">
+<h2>How can QM/MM best be used in biomolecular research?<a class="headerlink" href="#how-can-qm-mm-best-be-used-in-biomolecular-research" title="Permalink to this heading"></a></h2>
+<section id="when-to-use-qm-mm-and-when-not-to">
+<h3>When to use QM/MM, and when not to<a class="headerlink" href="#when-to-use-qm-mm-and-when-not-to" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Enzymatic reactions, transition states inside proteins</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=172">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Enzymes may use quite unusual chemistry, well-educated guesses on the mechanisms are often wrong, which simulation can reveal</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1258">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>To predict enzyme selectivity</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2193">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>QM/MM is very good for modelling reactivity of covalent bond breaking/formation</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2873">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Ligand-protein interactions and binding affinity calculations</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3547">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>If a reaction involves proton transfer, consider using path integration methods to account for tunnelling</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1247">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Model effects of point mutations</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2188">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Do QM/MM modelling when access to experimental data is difficult, e.g. at atomic resolution in transition states, short-lived intermediates, etc.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=431">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>QM/MM simulation can be used for crystal structure refinement</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2997">listen to Carme Rovira on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="key-steps">
+<h3>Key steps<a class="headerlink" href="#key-steps" title="Permalink to this heading"></a></h3>
+<p>What are key steps when performing QM/MM simulation?</p>
+<ul>
+<li><p><strong>Typical steps in a QM/MM simulation protocol</strong>
+(<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1841">listen to Carme Rovira on YouTube</a>) <strong>:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Obtain PDB structure (e.g. of an enzyme complex)</strong></p></li>
+<li><p><strong>System preparation</strong></p></li>
+<li><p><strong>Thermal equilibration (classical MD)</strong></p></li>
+<li><p><strong>Choose QM and QM-MM coupling treatments (region size, level of theory, etc.)</strong></p></li>
+<li><p><strong>Thermal re-equilibration (QM/MM MD)</strong></p></li>
+<li><p><strong>Choose collective variables</strong></p></li>
+<li><p><strong>Reaction simulation (static or dynamic, e.g. metadynamics)</strong></p></li>
+<li><p><strong>Analyze the free energy landscape</strong></p></li>
+<li><p><strong>Determine reaction mechanism</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="static-modelling-vs-dynamical-simulation">
+<h3>Static modelling vs dynamical simulation<a class="headerlink" href="#static-modelling-vs-dynamical-simulation" title="Permalink to this heading"></a></h3>
+<p>When to use static modelling (single point energies, nudged elastic band, etc.) vs dynamical simulation (umbrella sampling, metadynamics, etc.)</p>
+<ul class="simple">
+<li><p><strong>Sampling is required, however sampling time to achieve meaningful results can be greatly reduced</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3021">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Free energy simulations are more reliable for enzymes</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2344">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>The subset of catalytically competent conformations can be significantly small in comparison with the full conformational landscape, and x-ray structure is a good starting point for reactivity study. For example, single conformation QM/MM calculations may better enable understanding structure-activity relationship if computational resources are limited</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1839">listen to Maria João Ramos on YouTube</a>)</p></li>
+<li><dl class="simple">
+<dt><strong>Static techniques that allow efficient exploration of the conformational space of the enzyme during catalysis can provide insights into the dynamical picture through the PESs associated with the reaction</strong>:</dt><dd><ul>
+<li><p><strong>Single conformation calculations</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1802">listen to Maria João Ramos on YouTube</a>)</p></li>
+<li><p><strong>Averaging over an ensemble of conformations</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2481">listen to Maria João Ramos on YouTube</a>)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="structure-model-preparation-and-validation">
+<h2>Structure / model preparation and validation<a class="headerlink" href="#structure-model-preparation-and-validation" title="Permalink to this heading"></a></h2>
+<section id="structure-preparation-and-validation">
+<h3>Structure preparation and validation<a class="headerlink" href="#structure-preparation-and-validation" title="Permalink to this heading"></a></h3>
+<p>How to set up and validate your model structure (X-ray, NMR,
+cryo-em, homology modelling, protein structure prediction), including
+how to consider missing residues, atoms, protons (!), rotameric
+and tautomer (again protons!) states, (missing) waters, and substrate.</p>
+<ul>
+<li><p><strong>It is crucial to consider conformational behaviour of the substrate inside the enzyme pocket. Sample with classical or QM/MM MD.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2371">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Evaluate critically your initial PDB structure. If needed, re-optimise the crystal structure.</strong> (<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=302">listen to Ulf Ryde on YouTube</a>)</p></li>
+<li><p><strong>Conformation of substrates in classical MD can be wrong due to forcefield parameterization. QM/MM can be used for sampling to clarify conformation stability.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=795">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>It is good to check if your simulations can reproduce features from the crystal structures, like distortions of the substrate or amino acids. Simulations can be used for further crystal structure refinement</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2997">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>Suggestions to overcome the local minima problem in the case of proteins</strong>
+(<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2009">listen to Ulf Ryde on YouTube</a>) <strong>:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Run back and forth from starting state to final state until convergence</strong></p></li>
+<li><p><strong>Optimise only a small region beyond the QM system</strong></p></li>
+<li><p><strong>Base your calculations on many MD simulation snapshots</strong></p></li>
+<li><p><strong>Don’t just minimise the energy, calculate the free energy (include dynamics)</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="choosing-protonation-states">
+<h4>Choosing protonation states<a class="headerlink" href="#choosing-protonation-states" title="Permalink to this heading"></a></h4>
+<p>How should one choose protonation states of aminoacids inside the
+protein?  In the “methods” section of a publication one sometimes
+finds: “Protonation states were chosen based on pKa values, except
+Asp10, Glu43 and His35, which were protonated”, but without a decent
+explanation.</p>
+<ul class="simple">
+<li><p><strong>pKa values inside the protein are far away from the solution, advanced methods needed to account for it. Most enzymologists use</strong> <a class="reference external" href="https://github.com/jensengroup/propka">PROPKA</a> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2876">listen to Janez Mavri on YouTube</a>) <strong>.</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="model-preparation-and-validation">
+<h3>Model preparation and validation<a class="headerlink" href="#model-preparation-and-validation" title="Permalink to this heading"></a></h3>
+<p>Should one perform QM/MM calculation of a fully solvated protein in a periodic box of waters, droplet, implicit solvent or combination? If so, equilibrate at MM level, or not?</p>
+<ul>
+<li><p><strong>It is good to compare reactions energetics between gas phase, water and enzymes. One should see a clear catalytic effect in the protein environment.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1092">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>When it comes to comparison with experimental data it is better to use explicit solvent.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3257">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>QM cluster and QM/MM energies depend on the size of the QM system.</strong> (<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2607">listen to Ulf Ryde on YouTube</a>)</p></li>
+<li><p><strong>Recommendations and the “Big QM” cluster approach to get stable energies while increasing the number of QM atoms to 800-1000 atoms</strong>
+(<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2905">listen to Ulf Ryde on YouTube</a>) <strong>:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Include in the QM regions neutral groups up to 4-5 Å away from the minimal QM system consisting of the active site</strong></p></li>
+<li><p><strong>Include ALL the charged groups that are not on the surface of the protein (i.e. buried in the protein)</strong></p></li>
+<li><p><strong>Move the “junction” atoms 2 residues +caps aways from the active site / minimal QM system</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>QM/MM structures (and energies) are much more stable than QM-cluster structures (and energies) while increasing the QM size: smaller QM parts can be used with QM/MM models</strong> (<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3061">listen to Ulf Ryde on YouTube</a>)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="qm-mm-modelling-simulation-protocol-and-validation">
+<h2>QM/MM modelling / simulation protocol and validation<a class="headerlink" href="#qm-mm-modelling-simulation-protocol-and-validation" title="Permalink to this heading"></a></h2>
+<section id="how-best-to-choose-a-level-of-theory">
+<h3>How best to choose a level of theory?<a class="headerlink" href="#how-best-to-choose-a-level-of-theory" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p><strong>Projector-based embedding schemes are beneficial in getting consistent results for different DFT functionals</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1838">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Coupled Cluster (CC) methods are accurate but slow, MP2-based methods practically are more reliable</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3300">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>First always refer to relevant literature for your specific problem</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=681">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>If nobody has studied your biological system yet, focus on the specific chemistry involved in the phenomenon you want to study and start looking at the levels of theory employed to study it described in the literature</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2151">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>Which Hamiltonian to choose</strong>
+(<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=639">listen to Maria João Ramos on YouTube</a>) :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>From the literature you have to infer the approach that describes all the energy contributions involved in the phenomenon you are investigating</strong></p></li>
+<li><p><strong>Consider the availability of software that implements it</strong></p></li>
+<li><p><strong>Consider the availability of computational resources necessary to run it</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>Recommendations for the method to choose</strong>
+(<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3947">listen to Ulf Ryde on YouTube</a>) <strong>:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>If structure properties are the aim: pure DFT + dispersion corrections + small basis sets</strong></p></li>
+<li><p><strong>If energies are the aim: single points with larger basis sets</strong></p></li>
+<li><p><strong>Test pure and hybrid functionals: if the results are not comparable then calibrate your energies with higher level of theory (e.g. CCSD(T) for closed shell case or DMRG-PT2 for an open shell system)</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>The usage of polarization functions in the basis set used to describe the QM region is essential. Use at least a DZP basis set.</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2903">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>Limitation in the use of diffuse functions in a QM/MM setup (if required they can be employed to describe atoms only in the middle of the QM box)</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2864">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>Mixing the levels of theory to draw a conclusion could be dangerous</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1752">listen to Maria Khrenova on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-best-to-choose-a-suitable-dft-functional">
+<h3>How best to choose a suitable DFT functional?<a class="headerlink" href="#how-best-to-choose-a-suitable-dft-functional" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Benchmark your DFT functionals before embarking on expensive QM/MM calculations, modelling at least the relevant part of your system (e.g. active site) and taking a high-level theoretical method (e.g. CCSD(T)/CBS) as a reference for the energies.</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=832">listen to Maria João Ramos on YouTube</a>)</p></li>
+<li><p><strong>Do not use QM/MM (or any other method or computational tool) as a black box: if there are disagreements you need to explain them. Different functionals, inclusion of dispersion correction etc. can yield not only quantitavely but also qualitatively different results, and this can be to how well the approach captures - or fails to capture - key underlying chemistry.</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1181">listen to Maria Khrenova present 5 examples on YouTube</a>)</p></li>
+<li><p><strong>Test the functional against experimental results</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3065">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>DFT is not a systematically improvable method, sometimes you need to go beyond that, DFT often gives too low barriers</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=843">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Dispersion corrections for DFT can often improve results</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2527">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Check if your DFT functional preserves reactants configurations well: conformation of the substrate, H-bonds, etc.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1041">listen to Carme Rovira on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-best-to-choose-a-suitable-qm-region-size">
+<h3>How best to choose a suitable QM region size?<a class="headerlink" href="#how-best-to-choose-a-suitable-qm-region-size" title="Permalink to this heading"></a></h3>
+<ul>
+<li><p><strong>QM/MM works very well for enzymes even with relatively small QM region sizes.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1730">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>One should focus more on the quality of QM treatment, rather than QM region size. QM/MM often doesn’t converge with respect to the size of the QM part.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2093">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>One could check the effect of individual residues on catalysis by calculating their individual contributions into transition state stabilization.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2525">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>To choose the initial QM region size it is good to check interactions at the MM level.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2624">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Number of QM atoms typically depends on (limited by) the available computational resources, in practice ~150 QM atoms should be reachable.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3434">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>One protocol to find a suitable QM region, aiming to include all important effects in the QM region</strong>
+(<a class="reference external" href="https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3897">listen to Ulf Ryde on YouTube</a>):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Start with a rather small QM region and perform a QM/MM optimization with fixed surrounding</strong></p></li>
+<li><p><strong>Repeat it with free surroundings</strong></p></li>
+<li><p><strong>If there is a large difference between the results in the two previous points, then increase the QM size and repeat the cycle from step one</strong></p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="how-best-to-choose-the-valence-saturation-scheme-at-the-qm-mm-boundary">
+<h3>How best to choose the valence saturation scheme at the QM-MM boundary?<a class="headerlink" href="#how-best-to-choose-the-valence-saturation-scheme-at-the-qm-mm-boundary" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Typically Link-atoms should be used.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=401">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Put the QM-MM boundary preferably on an sp3 hybridised C atom (cut C-C bonds).</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2626">listen to Maria Khrenova on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="is-the-electrostatic-coupling-always-the-best-compromise-for-the-qm-mm-coupling">
+<h3>Is the electrostatic coupling always the best compromise for the QM/MM coupling?<a class="headerlink" href="#is-the-electrostatic-coupling-always-the-best-compromise-for-the-qm-mm-coupling" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Importance of the electrostatic embedding scheme. The mechanical scheme often brings underestimations and wrong results.</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2297">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>QM-MM interactions should also involve LJ-VdW interactions, not only electrostatics.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=348">listen to Adrian Mulholland on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="what-kind-of-systematic-basis-set-benchmarking-should-one-perform">
+<h3>What kind of systematic basis set benchmarking should one perform?<a class="headerlink" href="#what-kind-of-systematic-basis-set-benchmarking-should-one-perform" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Check for convergence with respect to basis set size.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3986">listen to Adrian Mulholland on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-to-choose-a-good-collective-variable-reaction-coordinate-and-perform-effective-sampling">
+<h3>How to choose a good collective variable (reaction coordinate) and perform effective sampling?<a class="headerlink" href="#how-to-choose-a-good-collective-variable-reaction-coordinate-and-perform-effective-sampling" title="Permalink to this heading"></a></h3>
+<p>How to choose a good collective variable (reaction coordinate) and perform effective sampling: chemical intuition versus unbiased and automated approaches.</p>
+<ul class="simple">
+<li><p><strong>It is good to start from the reaction in solution and/or cluster model within polarizable continuum to test possible reaction pathways.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=710">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Collective variable should include all bonds that form or break during the reaction:</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2272">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>Low-energy vibrations and variables in most cases do not affect free energy landscapes dramatically, so they could be excluded from collective variables.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3529">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>Position restraints may affect your final results significantly and should not be used in actual profile simulations.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3775">listen to Carme Rovira on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="long-range-electrostatics-truncate-or-not">
+<h3>Long-range electrostatics: truncate or not?<a class="headerlink" href="#long-range-electrostatics-truncate-or-not" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Evaluate how important long-range (7-20 Å) interactions are for the problem you are dealing with and choose the right model to describe them.</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1348">listen to Maria João Ramos on YouTube</a>)</p></li>
+</ul>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</section>
+</section>
+<section id="validation-analysis-and-interpretation-of-simulation-results">
+<h2>Validation, analysis and interpretation of simulation results<a class="headerlink" href="#validation-analysis-and-interpretation-of-simulation-results" title="Permalink to this heading"></a></h2>
+<section id="high-level-qm-with-limited-or-no-sampling-or-low-level-qm-with-sampling">
+<h3>High-level QM with limited or no sampling, or low-level QM with sampling?<a class="headerlink" href="#high-level-qm-with-limited-or-no-sampling-or-low-level-qm-with-sampling" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>On a high level you could get only enthalpies.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1160">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Do analysis of the free energy landscape: extract and analyse all reactants, products, transition state geometries and characterise them.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2446">listen to Carme Rovira on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-can-we-combine-low-level-qm-for-sampling-with-high-level-qm-for-energetics">
+<h3>How can we combine low-level QM for sampling with high-level QM for energetics?<a class="headerlink" href="#how-can-we-combine-low-level-qm-for-sampling-with-high-level-qm-for-energetics" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Static methods could give a good estimate of enthalpies. To get activation free energies one needs to consider dynamics. You could estimate entropic factors with lower-level QM/MM dynamics.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1075">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>To account for temperature effects one should consider QM/MD based free energy methods, like metadynamics.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1794">listen to Carme Rovira on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-to-check-validity-and-convergence-of-the-reaction-pathways">
+<h3>How to check validity and convergence of the reaction pathways?<a class="headerlink" href="#how-to-check-validity-and-convergence-of-the-reaction-pathways" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>The reaction space (in particular for enzymatic reactions) can be very complex: the more complex the Hamiltonian, the more difficult may be the reaction mechanism (i.e. more steps involved).</strong> (<a class="reference external" href="https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1717">listen to Maria João Ramos on YouTube</a>)</p></li>
+<li><p><strong>Sampling time is important, be careful and check free energy profile convergence.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3331">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>In enzymes, the transition state should be stabilized by the environment. Check for stabilization factors relative to the solvent.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1286">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Reactive conformation in the enzyme has the lowest activation energy, however they are often not the most populated.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2721">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Sometimes Michaelis complex in the enzymes can have a distorted geometry, which is not energetically most favorable but resembles the transition state, thus lowering activation energy.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=606">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>Beware of sampling in QM/MM, convergence could take a long time, especially with respect to the orientation of the reactants.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=962">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Michaelis complex formation constant is important for very fast enzymes.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=3360">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Note that the criteria you identify to describe when a reaction can take place may depend on the QM approach you chose.</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=885">listen to Maria Khrenova on YouTube</a>)</p></li>
+</ul>
+</section>
+<section id="how-to-validate-the-final-result-s">
+<h3>How to validate the final result(s)?<a class="headerlink" href="#how-to-validate-the-final-result-s" title="Permalink to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Try to make your prediction for well-studied systems and validate against experimental data.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=458">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>All intermediates in the reaction should be lower in energy than experimental activation energy.</strong> (<a class="reference external" href="https://youtu.be/8PGHcNKOLqY?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=729">listen to Adrian Mulholland on YouTube</a>)</p></li>
+<li><p><strong>Beware of improper models, some  effects do not contribute to the catalysis.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=568">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>Tunneling of protons is perfectly fine with transition state theory if it is properly accounted for.</strong> (<a class="reference external" href="https://youtu.be/GjRTQ5Q13qg?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1354">listen to Janez Mavri on YouTube</a>)</p></li>
+<li><p><strong>If you want to design an enzyme inhibitor, take into account that it should resemble both reactants state of the substrate as well as adapt for a binding site charge distribution well.</strong> (<a class="reference external" href="https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=2894">listen to Carme Rovira on YouTube</a>)</p></li>
+<li><p><strong>If you have to verify a hypothesis, first make direct tests, but then, make predictions with that hypothesis and verify them.</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1274">listen to Maria Khrenova on YouTube</a>)</p></li>
+<li><p><strong>Test robustness of the results by benchmarking the level of theory (functionals + basis sets).</strong> (<a class="reference external" href="https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&amp;t=1063">listen to Maria Khrenova on YouTube</a>)</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="summary.html" class="btn btn-neutral float-left" title="Overview and summary" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

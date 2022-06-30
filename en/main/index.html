@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Best Practices in QM/MM Simulation of Biomolecular Systems &mdash; Best Practices in QM/MM Simulation of Biomolecular Systems  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Overview and summary" href="summary.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="#" class="icon icon-home"> Best Practices in QM/MM Simulation of Biomolecular Systems
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Overview and summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="topics.html">Detailed advice on individual topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Best Practices in QM/MM Simulation of Biomolecular Systems</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+      <li>Best Practices in QM/MM Simulation of Biomolecular Systems</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="best-practices-in-qm-mm-simulation-of-biomolecular-systems">
+<h1>Best Practices in QM/MM Simulation of Biomolecular Systems<a class="headerlink" href="#best-practices-in-qm-mm-simulation-of-biomolecular-systems" title="Permalink to this heading"></a></h1>
+<p>This guide provides researchers, especially those new to QM/MM
+simulation of biomolecular systems, with advice on relevant best
+practices considered to be important by the organisers and speakers of
+the <a class="reference external" href="https://bioexcel.eu/events/virtual-workshop-best-practices-in-qm-mm-simulation-of-biomolecular-systems/">BioExcel Virtual Workshop on Best Practices in QM/MM Simulation
+of Biomolecular Systems</a>,
+who are:</p>
+<ul class="simple">
+<li><p>Maria João Ramos (University of Porto)</p></li>
+<li><p>Adrian Mulholland (University of Bristol)</p></li>
+<li><p>Maria Khrenova (Lomonosov Moscow State University and Russian Academy of Sciences Research Centre “Fundamentals of Biotechnology”)</p></li>
+<li><p>Ulf Ryde (Lund University)</p></li>
+<li><p>Carme Rovira (University of Barcelona and Catalan Institute for Research and Advanced Studies)</p></li>
+<li><p>Janez Mavri (Slovenia National Institute of Chemistry)</p></li>
+<li><p>Emiliano Ippoliti (Forschungszentrum Jülich)</p></li>
+<li><p>Dmitry Morozov (University of Jyväskylä)</p></li>
+<li><p>Gerrit Groenhof (University of Jyväskylä)</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Overview and summary</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#introduction">1. Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#prerequisites">2. Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#choosing-method-and-level-of-theory">3. Choosing method and level of theory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#qm-mm-modelling">4. QM/MM modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#simulation-protocol-and-qm-mm-workflow">5. Simulation protocol and QM/MM workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="summary.html#analysis-interpretation-and-validation-of-simulation-results">6. Analysis, interpretation and validation of simulation results</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="topics.html">Detailed advice on individual topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="topics.html#how-can-qm-mm-best-be-used-in-biomolecular-research">How can QM/MM best be used in biomolecular research?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#when-to-use-qm-mm-and-when-not-to">When to use QM/MM, and when not to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#key-steps">Key steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#static-modelling-vs-dynamical-simulation">Static modelling vs dynamical simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topics.html#structure-model-preparation-and-validation">Structure / model preparation and validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#structure-preparation-and-validation">Structure preparation and validation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="topics.html#choosing-protonation-states">Choosing protonation states</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#model-preparation-and-validation">Model preparation and validation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topics.html#qm-mm-modelling-simulation-protocol-and-validation">QM/MM modelling / simulation protocol and validation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-best-to-choose-a-level-of-theory">How best to choose a level of theory?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-best-to-choose-a-suitable-dft-functional">How best to choose a suitable DFT functional?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-best-to-choose-a-suitable-qm-region-size">How best to choose a suitable QM region size?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-best-to-choose-the-valence-saturation-scheme-at-the-qm-mm-boundary">How best to choose the valence saturation scheme at the QM-MM boundary?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#is-the-electrostatic-coupling-always-the-best-compromise-for-the-qm-mm-coupling">Is the electrostatic coupling always the best compromise for the QM/MM coupling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#what-kind-of-systematic-basis-set-benchmarking-should-one-perform">What kind of systematic basis set benchmarking should one perform?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-to-choose-a-good-collective-variable-reaction-coordinate-and-perform-effective-sampling">How to choose a good collective variable (reaction coordinate) and perform effective sampling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#long-range-electrostatics-truncate-or-not">Long-range electrostatics: truncate or not?</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="topics.html#validation-analysis-and-interpretation-of-simulation-results">Validation, analysis and interpretation of simulation results</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#high-level-qm-with-limited-or-no-sampling-or-low-level-qm-with-sampling">High-level QM with limited or no sampling, or low-level QM with sampling?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-can-we-combine-low-level-qm-for-sampling-with-high-level-qm-for-energetics">How can we combine low-level QM for sampling with high-level QM for energetics?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-to-check-validity-and-convergence-of-the-reaction-pathways">How to check validity and convergence of the reaction pathways?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="topics.html#how-to-validate-the-final-result-s">How to validate the final result(s)?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="summary.html" class="btn btn-neutral float-right" title="Overview and summary" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

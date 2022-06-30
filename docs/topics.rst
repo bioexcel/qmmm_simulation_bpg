@@ -58,7 +58,8 @@ Key steps
 
 What are key steps when performing QM/MM simulation?
 
-* **Typical steps in a QM/MM simulation protocol** (`listen to Carme Rovira on YouTube <https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=1841>`_) **:**
+* **Typical steps in a QM/MM simulation protocol**
+  (`listen to Carme Rovira on YouTube <https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=1841>`_) **:**
     * **Obtain PDB structure (e.g. of an enzyme complex)**
     * **System preparation**
     * **Thermal equilibration (classical MD)**
@@ -116,7 +117,8 @@ and tautomer (again protons!) states, (missing) waters, and substrate.
 * **It is good to check if your simulations can reproduce features from the crystal structures, like distortions of the substrate or amino acids. Simulations can be used for further crystal structure refinement** (`listen to Carme Rovira on YouTube <https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2997>`_)
 
 
-* **Suggestions to overcome the local minima problem in the case of proteins** (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2009>`_) **:**
+* **Suggestions to overcome the local minima problem in the case of proteins**
+  (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2009>`_) **:**
     * **Run back and forth from starting state to final state until convergence**
     * **Optimise only a small region beyond the QM system**
     * **Base your calculations on many MD simulation snapshots**
@@ -153,7 +155,8 @@ Should one perform QM/MM calculation of a fully solvated protein in a periodic b
 * **QM cluster and QM/MM energies depend on the size of the QM system.** (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2607>`_)
 
 
-* **Recommendations and the "Big QM" cluster approach to get stable energies while increasing the number of QM atoms to 800-1000 atoms** (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2905>`_) **:**
+* **Recommendations and the "Big QM" cluster approach to get stable energies while increasing the number of QM atoms to 800-1000 atoms**
+  (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2905>`_) **:**
     * **Include in the QM regions neutral groups up to 4-5 Å away from the minimal QM system consisting of the active site**
     * **Include ALL the charged groups that are not on the surface of the protein (i.e. buried in the protein)**
     * **Move the “junction” atoms 2 residues +caps aways from the active site / minimal QM system**
@@ -183,13 +186,15 @@ How best to choose a level of theory?
 * **If nobody has studied your biological system yet, focus on the specific chemistry involved in the phenomenon you want to study and start looking at the levels of theory employed to study it described in the literature** (`listen to Maria Khrenova on YouTube <https://youtu.be/uP1px6Yul2s?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=2151>`_)
 
 
-* **Which Hamiltonian to choose** (`listen to Maria João Ramos on YouTube <https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=639>`_) :
+* **Which Hamiltonian to choose**
+  (`listen to Maria João Ramos on YouTube <https://youtu.be/XIHMcR_tR7E?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=639>`_) :
     * **From the literature you have to infer the approach that describes all the energy contributions involved in the phenomenon you are investigating**
     * **Consider the availability of software that implements it**
     * **Consider the availability of computational resources necessary to run it**
 
 
-* **Recommendations for the method to choose** (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3947>`_) **:**
+* **Recommendations for the method to choose**
+  (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3947>`_) **:**
     * **If structure properties are the aim: pure DFT + dispersion corrections + small basis sets**
     * **If energies are the aim: single points with larger basis sets**
     * **Test pure and hybrid functionals: if the results are not comparable then calibrate your energies with higher level of theory (e.g. CCSD(T) for closed shell case or DMRG-PT2 for an open shell system)**
@@ -242,7 +247,8 @@ How best to choose a suitable QM region size?
 * **Number of QM atoms typically depends on (limited by) the available computational resources, in practice ~150 QM atoms should be reachable.** (`listen to Carme Rovira on YouTube <https://youtu.be/mojq6K6N7UM?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3434>`_)
 
 
-* **One protocol to find a suitable QM region, aiming to include all important effects in the QM region** (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3897>`_) **:**
+* **One protocol to find a suitable QM region, aiming to include all important effects in the QM region**
+  (`listen to Ulf Ryde on YouTube <https://youtu.be/aQdjC-W9Wy4?list=PLzLqYW5ci-2d-wolQ9CpE4akorB3naRso&t=3897>`_):
     * **Start with a rather small QM region and perform a QM/MM optimization with fixed surrounding**
     * **Repeat it with free surroundings**
     * **If there is a large difference between the results in the two previous points, then increase the QM size and repeat the cycle from step one**
